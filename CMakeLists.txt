@@ -8,3 +8,6 @@ MESSAGE(STATUS "Compiling with ${CMAKE_CXX_COMPILER_ID}, Version: ${CMAKE_CXX_CO
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+
+add_executable(symTest main.cpp)
+
