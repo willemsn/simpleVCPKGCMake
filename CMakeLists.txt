@@ -1,9 +1,6 @@
 CMAKE_MINIMUM_REQUIRED (VERSION 3.18)
 
-PROJECT(michale VERSION 2.2.0 LANGUAGES CXX)
-
-include(CheckCXXCompilerFlag)
-MESSAGE(STATUS "Compiling with ${CMAKE_CXX_COMPILER_ID}, Version: ${CMAKE_CXX_COMPILER_VERSION}")
+PROJECT(michael VERSION 2.2.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -19,6 +16,7 @@ add_executable(symTest main.cpp)
 target_include_directories(symTest PRIVATE ${SYMENGINE_INCLUDE_DIRS})
 target_link_libraries(symTest PRIVATE Boost::numeric_odeint)
 target_link_libraries(symTest PRIVATE ${SYMENGINE_LIBRARIES})
+target_link_libraries(symTest PRIVATE flint)
 target_link_libraries(symTest PRIVATE PkgConfig::gmp)
 target_link_libraries(symTest PRIVATE PkgConfig::gmpxx)
-target_link_libraries(symTest PRIVATE flint)
+
