@@ -1,6 +1,9 @@
 {
     "dependencies": [
 	"boost-odeint",
-	"symengine"
+	"symengine",
+	"flint",
+	"gmp",
+	"mpfr"
     ]
 }

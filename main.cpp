@@ -1,22 +1,19 @@
 #include <iostream>
-
 #include <symengine/expression.h>
-#include <symengine/add.h>
 #include <symengine/symbol.h>
 
 using namespace SymEngine;
 
-int main(int argc, char* argv[]) 
+int main()
 {
-    // Create symbolic variables
-    Symbol x("x");
-    Symbol y("y");
+    // Correct way: Define Expression objects
+    Expression x("x");
+    Expression y("y");
 
-    // Create a symbolic expression
-    Expression expr = x + 2 * y;
+    // Now you can safely do arithmetic
+    Expression expr = x + y * 2;
 
-    // Print the expression
-    std::cout << expr << std::endl; // Output: x + 2*y
+    std::cout << "Expression: " << expr << std::endl;
 
     return 0;
 }
