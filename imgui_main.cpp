@@ -222,7 +222,7 @@ GLFWwindow *initialize_imGUI(const std::string_view &winTitle)
   // io.Fonts->AddFontDefault();
 
   // Loading the Jetbrains font, which looks a bit nicer and is free to use
-  io.Fonts->AddFontFromFileTTF("JetBrainsMono-Regular.ttf", 24);
+  // io.Fonts->AddFontFromFileTTF("JetBrainsMono-Regular.ttf", 24);
 
   return GLFWwindow_ptr;
 }
