@@ -10,7 +10,7 @@
 	{
 	    "name": "imgui",
 	    "default-features": false,
-	    "features": ["freetype", "glfw-binding", "metal-binding", "opengl3-binding"]
+	    "features": ["freetype", "glfw-binding", "opengl3-binding"]
 	}
     ]
 }
