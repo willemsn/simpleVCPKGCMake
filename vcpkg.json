@@ -3,6 +3,14 @@
 	"boost-odeint",
 	"symengine",
 	"gmp",
-	"mpfr"
+	"mpfr",
+	"glew",
+	"glfw3",
+	"glm",
+	{
+	    "name": "imgui",
+	    "default-features": false,
+	    "features": ["freetype", "glfw-binding", "metal-binding", "opengl3-binding"]
+	}
     ]
 }
