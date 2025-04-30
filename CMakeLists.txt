@@ -18,14 +18,6 @@ link_libraries (${OPENGL_LIBRARY})
 find_package(glfw3 CONFIG REQUIRED)
 find_package(imgui CONFIG REQUIRED)
 
-Include(FetchContent)
-FetchContent_Declare(
-        Catch2
-        GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-        GIT_TAG        v3.8.0 # or a later release
-)
-FetchContent_MakeAvailable(Catch2)
-
 find_package(Boost REQUIRED COMPONENTS numeric_odeint)
 find_package(SymEngine CONFIG REQUIRED)
 find_package(PkgConfig REQUIRED)
@@ -44,7 +36,7 @@ target_link_libraries(symTest PRIVATE flint)
 target_link_libraries(symTest PRIVATE PkgConfig::gmp)
 target_link_libraries(symTest PRIVATE PkgConfig::gmpxx)
 
-
 add_executable(imguiTest imgui_main.cpp)
 target_link_libraries(imguiTest PRIVATE imgui::imgui glfw)
 
+add_subdirectory(tests)
