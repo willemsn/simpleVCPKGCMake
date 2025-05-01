@@ -17,6 +17,7 @@ find_package(OpenGL REQUIRED)
 link_libraries (${OPENGL_LIBRARY})
 find_package(glfw3 CONFIG REQUIRED)
 find_package(imgui CONFIG REQUIRED)
+find_package(implot CONFIG REQUIRED)
 
 find_package(Boost REQUIRED COMPONENTS numeric_odeint)
 find_package(SymEngine CONFIG REQUIRED)
@@ -37,6 +38,12 @@ target_link_libraries(symTest PRIVATE PkgConfig::gmp)
 target_link_libraries(symTest PRIVATE PkgConfig::gmpxx)
 
 add_executable(imguiTest imgui_main.cpp)
+target_link_libraries(imguiTest PRIVATE implot::implot)
 target_link_libraries(imguiTest PRIVATE imgui::imgui glfw)
+
+add_custom_command(TARGET imguiTest POST_BUILD
+                   COMMAND ${CMAKE_COMMAND} -E copy
+                   ${CMAKE_CURRENT_SOURCE_DIR}/fonts/JetBrainsMono-Regular.ttf
+                   ${CMAKE_CURRENT_BINARY_DIR}/JetBrainsMono-Regular.ttf)
 
 add_subdirectory(tests)

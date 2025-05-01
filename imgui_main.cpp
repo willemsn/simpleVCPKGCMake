@@ -24,6 +24,8 @@
 #endif
 #include <GLFW/glfw3.h> // Will drag system OpenGL headers
 
+#include "implot.h"
+
 // [Win32] Our example includes a copy of glfw3.lib pre-compiled with
 // VS2010 to maximize ease of testing and compatibility with old VS
 // compilers.  To link with VS2010-era libraries, VS2015+ requires
@@ -127,6 +129,25 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
       // /////////////////////////////////
       
 
+      std::vector<int> bar_data(11);
+      
+      std::vector<float> x_data;
+      std::vector<float> y_data;
+
+      for (int i=0;i<1000;++i){
+          x_data.push_back(i);
+          y_data.push_back(cos(i));
+      }
+
+      ImGui::Begin("My Window");
+      if (ImPlot::BeginPlot("My Plot")) {
+          // ImPlot::PlotBars("My Bar Plot", bar_data, 11);
+          ImPlot::PlotLine("My Line Plot", x_data.data(), y_data.data(), x_data.size());
+          ImPlot::EndPlot();
+      }
+      ImGui::End();
+
+
       //
       // Final Rendering - do not edit below here.
       //
@@ -191,6 +212,8 @@ GLFWwindow *initialize_imGUI(const std::string_view &winTitle)
   // Setup Dear ImGui context
   IMGUI_CHECKVERSION();
   ImGui::CreateContext();
+  ImPlot::CreateContext();
+  
   ImGuiIO& io = ImGui::GetIO(); (void)io;
   //io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
   //io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
